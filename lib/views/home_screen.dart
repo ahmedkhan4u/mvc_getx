@@ -15,16 +15,16 @@ class HomeScreen extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           } else {
             return ListView.builder(
-                itemCount: postController.postList.length,
+                itemCount: Get.find<PostController>().postList.length,
                 itemBuilder: (context, index) {
-                  if (postController.postList.isEmpty) {
+                  if (Get.find<PostController>().postList.isEmpty) {
                     return const Center(
                       child: Text("No Data"),
                     );
                   } else {
                     return PostTile(
-                      url: postController.postList[index].url,
-                      title: postController.postList[index].title,
+                      url: Get.find<PostController>().postList[index].url,
+                      title: Get.find<PostController>().postList[index].title,
                     );
                   }
                 });
